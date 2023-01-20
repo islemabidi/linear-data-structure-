@@ -1,0 +1,50 @@
+[9,3,5,4]
+[6,3,4]
+[(9,1),(3,2),(5,1),(4,2),(6,1)]
+
+ALGORITHM part 2 htab
+VAR
+    set1,set2:Array_OF INTEGER[100];
+    setkeys: Array_OF integer [100];
+    dict: HASH_TABLE<INTEGER,INTEGER>
+    i, count: INTEGER
+    sum: INTEGER :=0;
+BEGIN
+    FOR i FROM 0 TO set1.length-1   DO
+        read(set1 [i])
+    END_FOR
+
+    FOR i FROM 0 TO set2.length-1 STEP step  DO
+        read(set2[i])
+    END_FOR
+
+FOR i FROM 0 TO set1.length-1  DO
+    IF (dict.lookup(set1[i]=true)) THEN
+        count:= dict.get(set1[i])
+        dict.insert(set1[i], count+1)
+    ELSE 
+    dict.insert(set1[i],1)
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO max set2.length-1  DO
+    IF (dict.lookup(set2[i]=true)) THEN
+        count:=dict.insert(set2[i],count+1)
+
+    ELSE
+    dict.insert(set2[i],1)  
+    END_IF
+END_FOR
+
+setkeys:= dict.getKeys()
+
+
+FOR i FROM 0 TO setkeys.length-1  DO
+    IF (dict.get(setKeys[i])=1) THEN
+        sum:= sum setKeys[i];
+    END_IF
+END_FOR
+
+write ("la somme est", sum);
+
+END

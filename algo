@@ -1,0 +1,51 @@
+ALGORITHM sum tabs
+VAR
+    tab1,tab2: Array_OF [n];
+    sum ,i,j,n:integer;
+    found:BOOLEAN;
+BEGIN
+    sum:=0;
+    FOR i FROM 0 TO n-1   DO
+        read(tab1[i])
+    END_FOR
+
+
+    sum:=0;
+    FOR i FROM 0 TO n-1   DO
+        read(tab2[i])
+    END_FOR
+
+FOR i FROM 0 TO tab1.length-1   DO
+found:=false
+
+
+FOR j FROM 0 TO n-1   DO
+    IF (tab1[i]=tab2[j]) THEN
+        found:=True
+    END_IF
+
+END_FOR
+
+IF (found=false) THEN
+    sum:= sum+tab1[i]
+END_IF
+END_FOR
+
+FOR j FROM 0 TO tab2.length-1  DO
+    found:=false
+
+FOR i FROM 0 TO tab1.length-1   DO
+    IF (tab2[j]=tab1[i]) THEN
+        found:= True;
+    END_IF
+END_FOR
+
+END_FOR
+
+IF (found=false) THEN
+    sum:= sum+tab2[j]
+END_IF
+
+write ( "la somme est", Sum);
+
+END
